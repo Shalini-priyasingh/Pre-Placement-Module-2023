@@ -1,0 +1,25 @@
+class Solution {
+public:
+vector<vector> merge(vector<vector>& in) {
+sort(in.begin(),in.end());
+int i,j,n=in.size();
+vector<vector> v;
+int s=in[0][0],e=in[0][1];
+for(i=0;i<n;i++)
+{
+if(e>=in[i][0])
+{
+e=max(e,in[i][1]);
+}
+else
+{
+v.push_back({s,e});
+s=in[i][0];
+e=in[i][1];
+}
+}
+v.push_back({s,e});
+return v;
+
+}
+};
